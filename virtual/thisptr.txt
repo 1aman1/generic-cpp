@@ -1,0 +1,30 @@
+Reasons it is good to know more about this pointer in c++ :-
+  
+Ex-1 #
+
+class Car{
+	int model;
+public:
+	void SetModel(int model){		
+		this->model = model;
+	}
+};
+
+> Here when the SetModel will be called, a this pointer will be passed by the compiler besides the existing 'model' paramter.
+It stays hidden in all the calls done to a class member function.
+
+Ex-2 #
+If we write function definition for SetModel like this 
+
+	void SetModel(int model){		
+#		this->model = model;
+		model = model;
+	}
+
+> If we write it this way, and comment previous style using this->, the code should run as there is nothing wrong with syntax and compiler will not throw anything error.
+But it will not mean what we assume it is.
+
+
+Ex-3 #
+
+This is more of a reader POV factor that, a function is never limited in size hence if code grows bigger with lot of activities, it's a readable aid to have this pointer because it differentiates the class member function with other variables etc in the function snippet.
